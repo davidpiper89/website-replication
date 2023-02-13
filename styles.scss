@@ -1,0 +1,267 @@
+@font-face {
+  font-family: futura;
+  src: url(Futura\ PT\ Light\ 200.woff);
+}
+@font-face {
+  font-family: futuramed;
+  src: url(/Futura\ PT\ Medium\ 400.woff);
+}
+
+body {font-family: futuramed; margin: 0;}
+div {box-sizing: border-box;}
+
+// Mixins
+
+@mixin navheaders {padding: 15px 20px 15px 20px}
+@mixin burger {width: 22px; height: 2px; margin-bottom: 5px ; background-color: black; transition: transform 0.2s linear}
+@mixin goldhover {color: #c9a16e}
+
+// Header
+
+header {position:sticky; ; background-color: white; top: 0px; z-index: 1000;}
+.topmenu {display: flex;border-bottom: 1px solid #ccc; }
+.fa-magnifying-glass:hover {@include goldhover()}
+.fa-play:hover {@include goldhover()}
+.fa-user:hover {@include goldhover()}
+.logo {width: 100px; margin-left: 10px;}
+.topmenu {padding: 12.5px 20px 12.5px 20px;}
+.toolbar {margin: 0px 30px 0px 58px; display: flex; flex-wrap: nowrap;}
+.fa-play {margin-left: 20px;}
+.fa-user {margin-left: 20px}
+
+@media screen and (min-width: 800px){
+  .logo {width: 340px;}
+  .topmenu {justify-content: space-between; align-items: center;}
+}
+
+
+// All header
+
+h2 {text-align: center;}
+  
+// Burgermenu
+
+.menutoggle div {@include burger}
+.menutoggle {position: relative;}
+.menutoggle input {width: 38px; height: 25px; position:absolute; cursor: pointer; top: -5px; left: -11px; opacity:0; z-index: 1000;}
+.menu {position: absolute; left: -50px; transform: translateY(-150%); transition: transform 0.2s linear; background-color: white; z-index: 1; width: 100vw;height: 100vh; font-size: 16px;}
+.menu li {padding: 10px 20px 10px 20px; line-height: 1.2;}
+.gldleft:hover {border-left: solid 2px #c9a16e;}
+li {list-style: none;}
+.menutoggle input:checked ~ .menu {transform: translateY(60px);}
+.menutoggle input:checked ~ div {opacity: 1; transform: rotate(45deg) translateY(10px); background: #c9a16e;}
+.menutoggle input:checked ~ div:nth-last-child(3){opacity: 0; transform: rotate(0deg) scale(0.2, 0.2); background: #c9a16e;}
+.menutoggle input:checked ~ div:nth-last-child(2){transform: rotate(-45deg) translateY(-10px); background: #c9a16e;}
+.icons {padding: 0}
+.topicon {display: flex; justify-content: space-around;}
+.boticon {display: flex; justify-content: space-around;}
+
+.fa-brands:hover, .fa-sharp:hover {@include goldhover()}
+
+
+
+// Submenu
+
+.submenu li {visibility: hidden;}
+#toggle:checked ~ .submenu {visibility: visible;}
+#toggle {opacity: 1;}
+
+
+
+// Nav Bar
+
+.nav {display: flex; overflow: scroll; font-family: futura; font-size: 13px}
+.nav-series {@include navheaders}
+.nav-topics {@include navheaders}
+.nav-picks {@include navheaders}
+.nav-nowness {@include navheaders; white-space: nowrap;}
+
+// Poster
+
+.posterimg {position: relative;}
+.playcentre {top:0; width: 100%; height: 100%; position: absolute; display: flex;  align-items: center; justify-content: center; color: white;}
+
+// .poster {position: relative; width: 100%;}
+// .poster-container {max-width: 1400px;}
+// .fa-circle-play {position: absolute;}
+// .fa-circle-play {color: white;}
+// .poster-content {margin: 0; padding: 40px 20px 0px 20px}
+.poster-content h2 {font-family: futuramed; font-size: 24px ;margin: 0px 0px 10px 0px; font-weight: 700;}
+.poster-content p {text-align: center; margin: 0; padding-bottom: 30px; font-family: futura; font-size: 14px;}
+
+@media screen and (min-width: 601px){
+  .poster-content { display: flex; width: 100%; height: 100%; position: absolute; bottom:0; color: white; flex-direction: column; justify-content: flex-end;}
+  .poster-content h2 {font-size: 43px;}
+  .poster-content p {font-size: 19px;} 
+  .poster {position: relative;}
+}
+
+//Dates
+
+.meet {display: flex; overflow: hidden;border-top: 1px solid #c9a16e ;}
+.meet {padding-top: 30px; margin-bottom: 30px;}
+.meet p {font-family: futura; font-size: 13px; text-align: center}
+h3 {font-family: futura; font-size: 16px; text-align: center; font-weight: 200; line-height: 1.1; letter-spacing: -.02em;}
+.dates {margin-right: 25px;}
+
+// slider
+
+.slider-cont {position: relative; overflow: hidden;}
+.slider {width: 100%; height: 100%; position: absolute; top:0; right:2px; color: black; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; transform: translateY(30px); transition: transform 0.5s linear;  opacity: 0.6;}
+.slider:hover {transform: translateY(-10px);}
+.fa-plus:hover {color: #c9a16e;}
+
+// FB and Twitter slider
+
+.fbslider-cont {position: relative; overflow: hidden;}
+.fbslider {display: flex; ;transition: transform 1.5 ease-in-out;}
+.fa-facebook-f:hover {transform: translateY(-100%);}
+
+
+
+// Stories and most watched
+
+
+.direct {padding: 20px; border-top: 1px solid #c9a16e}
+.world {padding: 20px; border-top: 1px solid #c9a16e}
+.direct h2 {padding-bottom: 20px;}
+.world h2 {padding-bottom: 20px;}
+h2 {font-size: 18px; font-family: futura; font-weight: 200; line-height: 1.35; letter-spacing: 0.07em; margin: 0;}
+.storycontent {padding: 0; margin: 0; width: 100%;}
+.worldcontent {padding: 0; margin: 0; width: 100%;}
+
+.story {width: 100%; margin-bottom: 30px;}
+.story h4{font-size: 20px; line-height: 1.38; margin-top: 15px; font-family: futura; margin-bottom: 0;}
+.story p{font-size: 17px; margin: 10px 0 0; font-family: futura; line-height: 1.38;}
+.worldstory {width: 100%; margin-bottom: 30px;}
+.worldstory h4{font-size: 20px; line-height: 1.38; margin-top: 15px; font-family: futura; margin-bottom: 0;}
+.worldstory p{font-size: 17px; margin: 10px 0 0; font-family: futura; line-height: 1.38;}
+
+.storypic {object-fit: cover; width:100%}
+
+.mostwatched {width: 100%; padding: 20px; border-top: 1px solid #c9a16e;}
+.mw-container {width: 100%; display: flex; flex-direction: column; align-items: center;}
+.watched {object-fit: cover; width: 100%}
+.mostwatched h2 {margin-bottom: 20px;}
+.mwpost.first {max-width: 374px;}
+.mwpost.second {max-width: 374px;}
+.mwpost h3 {font-family: futuramed; font-size: 24px; margin: 20px 0px 0px 0px; text-align: center;}
+.mwpost p {font-family: futura; text-align: center; font-size: 17px;}
+
+@media screen and (min-width: 601px) {
+
+  .storycontent{display: flex;  flex-direction: row; gap: 20px;}
+  
+  .worldcontent {display: flex; gap: 20px; flex-wrap: wrap; flex-basis: content;}
+  .worldstory {min-width: 274px; max-width: 457.5px;}
+  
+}
+
+@media screen and (min-width: 801px) {
+
+  
+  .mw-container{display:flex; flex-direction: row; width: 100%; align-items: flex-start; justify-content:space-around; }
+  .mwpost.first {width: 50%; object-fit: cover; }
+  .mwpost.second {width: 50%; object-fit: cover}
+  
+}
+
+// Picture overlays
+
+// .icons {display: flex; flex-wrap: wrap; gap:20px;}
+// .story {position:relative; overflow: hidden;}
+// .overlay {width: 40px; height: 80px; background-color: #ddd;position:absolute; opacity: 0.6;}
+
+// Share
+
+.share {padding: 20px; text-align: center; border-top: 1px solid #c9a16e;}
+.facebook {margin-bottom: 30px;}
+.facebook h2{margin-bottom: 20px;}
+.sharepic {margin-bottom: 5px;}
+.like-button {font-family: futura;}
+.ytsubscribe {font-family: futura;}
+.like-button:hover {color: #c9a16e;} 
+.ytsubscribe:hover {color: #c9a16e;} 
+
+// Subscribe
+
+.subscribe {padding: 20px; border-top: 1px solid #c9a16e; display: flex; flex-direction: column; align-items: center;}
+.email-container {width:100%}
+.newsletter input {object-fit: cover; width:90%}
+.email {padding: 8px 17px 8px 17px; object-fit: cover; width:80%; font-family: futura; }
+
+
+
+.togglesub {opacity: 0; position: absolute; cursor: pointer;}
+.togglesub + label {display: flex; position: relative; cursor: pointer;}
+.togglesub + label::before {content: ""; width: 32px; height: 18px; background-color: #ccc; border-radius: 15px;}
+.togglesub + label::after {content: ""; width: 15px; height: 17px; background-color: white; border-radius: 15px; position: absolute; left: 2px;} 
+.togglesub:checked + label::before {content: ""; background-color: #c9a16e;}
+.togglesub:checked  + label::after{transform: translateX(95%); background-color: white; border-radius: 16px;} 
+.togglesub:checked + label {color: #ccc}
+.check1 {display: flex; padding: 9px 0px 9px 0px}
+.check2 {display: flex; padding: 9px 0px 9px 0px}
+.subtext{font-size: 17px; font-family: futura;}
+
+.newsletter_button {padding: 0px 30px 0px 30px; font-family: futura; font-size: 14px;}
+.newsletter_button:hover {color: #c9a16e;}
+
+
+.love {width: 100%; padding: 20px; border-top: 1px solid #c9a16e;}
+.love h2 {margin-bottom: 20px;}
+.allarts {width: 100%; display: flex; flex-direction: column; align-items: center;}
+.art {max-width: 200px;}
+.art h2{text-align: left;}
+.art p {font-family: futura;}
+.m2love {object-fit: cover;width: 100%;}
+
+@media screen and (min-width: 601px) {
+
+  .allarts {flex-direction: row; width: 100%; align-items: flex-start; justify-content: space-between; }
+  .art {max-width: 300.63px;margin-right: 20px;}
+  
+}
+// @media screen and (min-width: 1025px) {
+
+//   .allarts {flex-direction: row; width: 100%; align-items: flex-start;}
+//   .art {display:flex; max-width: 150px; }
+  
+  
+// }
+
+// Beceom a member
+
+.join {padding: 20px; border-top: 1px solid #c9a16e; display: flex; flex-direction: column; margin-bottom: 25px; align-items: center;}
+.join h2 {font-size: 16px; margin-bottom: 25px; line-height: 1.38;}
+.join p {font-size: 13px; font-family: futura; margin:  18px 0px 25px 0px; text-align: center;}
+.signin {color: #c9a16e; text-decoration-line: none;}
+.join-btn {width: 280px; font-family: futura;}
+
+@media screen and (min-width: 601px) {
+
+  .join h2 {font-size: 20px;}
+  .connect h2 {font-size: 20px;} 
+}
+@media screen and (min-width: 1026px) {
+  .breakpoint {display: flex;align-items: center; border-top: 1px solid #c9a16e}
+  .join {width: 50%; border: none;}
+  .connect {width: 50%; border-left: 1px solid black}
+}
+
+.connect h2 {font-size: 16px; margin-bottom: 20px;}
+.connect-icons {display: flex; justify-content: space-around; margin-bottom: 25px;}
+.iconz {padding: 15px}
+
+.fa-facebook-f {position: relative; display: flex; overflow: hidden;}
+.popuplike {position: absolute;}
+
+.btm-nav {width: 100%; padding: 20px 0px 65px 0px; border-top: 1px solid #c9a16e}
+.btm-nav ul {padding:0; margin: 0;}
+.btm-nav ul li {text-align: center; font-size: 12px; font-family: futura; padding: 22px 0px 22px 0px;}
+.btm-nav ul li:hover {color: #c9a16e;}
+
+.footer-nav {width: 100%; padding: 00px 0px 70px 0px;}
+.footer-nav ul {padding:0; margin: 0;}
+.footer-nav ul li {text-align: center; font-size: 14px; font-family: futura; padding: 0px 0px 25px 0px; text-transform: uppercase;}
+
+
